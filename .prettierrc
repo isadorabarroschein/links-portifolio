@@ -1,0 +1,17 @@
+{
+    "singleQuote" : false,
+    "semi": true,
+    " trailingComa" : "none",
+    "overrides" : [
+        {
+            "files": "*.html",
+            "options": {
+                "parser" : "html"
+                
+
+            }
+            
+        }
+    ]
+    
+}
