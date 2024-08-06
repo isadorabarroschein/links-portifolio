@@ -18,7 +18,7 @@
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color: rgba(73, 52, 52, 0.05);
   --surface-color-haver: rgba(0, 0, 0, 0.02);
   --hightlight-color: rgba(0, 0, 0, 0.2);
   --switch-bg--url: url(./assets/sun.svg);
@@ -29,29 +29,78 @@ body {
 }
 
 body * {
-    font-family: "Inter", sans-serif;
-    color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
 }
-
 
 #container {
-    width: 100vw;
-    max-width: 588px;
-    margin: 56px auto 0px;
-    padding: 0 24px;
-}
-#profile img {
-width: 112px;
-border-radius: 100%
+  width: 100vw;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
 }
 
+/* Profile */
 #profile {
-    font-weight: 500;
-    line-height: 24px;
-    margin-top: 8px;
+  text-align: center;
+  padding: 24px;
+}
 
+#profile img {
+  width: 112px;
+  border-radius: 100%;
 }
 
 #profile p {
-    font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
 }
+
+#profile span {
+  font-size: 12px;
+}
+
+/* Switch */
+#switch { 
+  position: relative;
+   width: 64px;
+   margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg--url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top:50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-back 0.2s;
+
+}
+
+.light #switch button {
+  animation: slide-in 0.2s;
+}
+
+#switch button:hover {
+ outline: 8px solid var(hightlight-color)
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var (--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+
+}
+
