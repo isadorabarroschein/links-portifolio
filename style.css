@@ -6,22 +6,22 @@
 
 :root {
   --text-color: white;
-  --bg-url: url(./assets/bg-mobile.png);
+  --bg-url: url(./assets/bg-desktop.png);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
-  --surface-color-haver: rgba(255, 255, 255, 0.02);
-  --hightlight-color: rgba(255, 255, 255, 0.2);
-  --switch-bg--url: url(./assets/moon-stars.svg);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
 }
 
 .light {
   --text-color: black;
-  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --bg-url: url(./assets/bg-desktop-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(73, 52, 52, 0.05);
-  --surface-color-haver: rgba(0, 0, 0, 0.02);
-  --hightlight-color: rgba(0, 0, 0, 0.2);
-  --switch-bg--url: url(./assets/sun.svg);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
@@ -40,7 +40,7 @@ body * {
   padding: 0 24px;
 }
 
-/* Profile */
+/* profile */
 #profile {
   text-align: center;
   padding: 24px;
@@ -61,38 +61,39 @@ body * {
   font-size: 12px;
 }
 
-/* Switch */
-#switch { 
+/* switch */
+#switch {
   position: relative;
-   width: 64px;
-   margin: 4px auto;
+  width: 64px;
+
+  margin: 4px auto;
 }
 
 #switch button {
   width: 32px;
   height: 32px;
-  background: white var(--switch-bg--url) no-repeat center;
+  background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
 
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
-  animation: slide-back 0.2s;
 
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  animation: slide-in 0.2s;
+  animation: slide-in 0.2s forwards;
 }
 
 #switch button:hover {
- outline: 8px solid var(hightlight-color)
+  outline: 8px solid var(--highlight-color);
 }
 
-#switch span{
+#switch span {
   display: block;
   width: 64px;
   height: 24px;
@@ -101,37 +102,48 @@ body * {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
-
 }
 
-/* Links */
+/* links */
 ul {
   list-style: none;
-  padding: 24px 0;
+
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  padding: 24px 0;
 }
 
 ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 16px 24px;
+
   background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 8px;
+
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur (4px);
+  -webkit-backdrop-filter: blur(4px);
+
   text-decoration: none;
   font-weight: 500;
+
   transition: background 0.2s;
 }
 
+/* pseudo-selector */
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
-  color: var (--stroke-color);
+  color: var(--stroke-color);
+}
 
+ul li a:hover ion-icon {
+  fill: var(--stroke-color);
 }
 
 ul li a ion-icon {
@@ -140,32 +152,33 @@ ul li a ion-icon {
   margin-right: 15px;
 }
 
-/* social Links */
+/* social links */
 #social-links {
   display: flex;
   justify-content: center;
-  padding: 24px 0;
-  font-size: 24px;
 
+  padding: 24px 0;
+
+  font-size: 24px;
 }
 
 #social-links a {
   display: flex;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
   padding: 16px;
+
   transition: background 0.2s;
   border-radius: 50%;
 }
 
 #social-links a:hover {
-  background: var(--surface-color-hover);
+  background: var(--highlight-color);
 }
 
-/* Footer */
 footer {
-  text-align:center;
   padding: 24px 0;
+  text-align: center;
   font-size: 14px;
 }
 
@@ -174,41 +187,40 @@ footer a {
 }
 
 footer a:hover {
-  color:var(--stroke-color);
+  color: var(--stroke-color);
 }
 
-/* Media Queries */
-
-@media (min-width: 768px) {
+/* media queries */
+@media (max-width: 700px) {
   :root {
---bg-url: url(./assets/bg-desktop.png);
+    --bg-url: url(./assets/bg-desktop.png);
 
-ul li a ion-icon {
-  width: 25px;
-  height: 25px;
-}
-
-  }
-  .light {
-    --bg-url: url(./assest/bg-desktop-light.lpg);
-
-  }
-  }
-
-  /* animations */
-  @keyframes slide-back {
-    from {
-      left: 50%;
-     }
-     to {
-      left: 0;
-     }
-  }
-  @keyframes slide-in {
-    from {
-      left: 0;
-    } 
-    to{
-      left: 50%;
+    ul li a ion-icon {
+      width: 25px;
+      height: 25px;
     }
   }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
